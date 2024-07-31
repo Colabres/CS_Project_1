@@ -19,11 +19,12 @@
         <div class="card" style="width: 28rem;">
             <div class="card-body bg-secondary text-dark">
               <h5 class="card-title">Welcome</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Balance: {{ balance }} Username: {{ username }}</h6>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               
               <div class="container  bg-secondary p-5 text-center">
                 <form id="register-form" method="POST" action="/transfer_form">
+                        {% csrf_token %}
                         <div class="input-group mb-3 ">
                             <input type="text" class="form-control text-center" placeholder="From" aria-label="from" aria-describedby="basic-addon1" name="from" maxlength="=20">
                         </div>
@@ -31,7 +32,8 @@
                             <input type="text" class="form-control text-center" placeholder="To" aria-label="to" aria-describedby="basic-addon1" name="to" maxlength="50">
                         </div>
                         <div class="input-group mb-3 ">
-                            <input type="text" class="form-control text-center" placeholder="Ammount" aria-label="ammount" aria-describedby="basic-addon1" name="ammount" maxlength="50">
+                            <input type="text" class="form-control text-center" placeholder="Amount" aria-label="amount" aria-describedby="basic-addon1" name="amount" maxlength="50">
+                            
                         </div>
                        
 

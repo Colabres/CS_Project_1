@@ -25,6 +25,7 @@
               
               <div class="container  bg-secondary p-5 text-center">
                 <form id="register-form" method="POST" action="/register_form">
+                        {% csrf_token %}
                         <div class="input-group mb-3 ">
                             <input type="text" class="form-control text-center" placeholder="Login" aria-label="username" aria-describedby="basic-addon1" name="username" maxlength="=20">
                         </div>
@@ -40,8 +41,12 @@
 
 
 
-                        {% if message %}
-                        <p>  {{ message }} </p>
+                        {% if errors %}
+                        <ul>
+                            {% for error in errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
                         {% endif %}
         
                         <button type="submit" class="btn btn-primary" name="action" value="register">Register</button>
